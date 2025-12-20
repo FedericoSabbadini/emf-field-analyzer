@@ -1,0 +1,19 @@
+================================================================================
+Single Wire - XZ Plane Cross-Section
+================================================================================
+
+SIMULATION: Single Wire - XZ Plane Cross-Section
+FILE: simulation.m
+OUTPUT: output.png
+
+================================================================================
+DESCRIPTION
+================================================================================
+
+This simulation visualizes the electromagnetic field distribution for the
+specified configuration. The output shows both field magnitude distribution
+and isolevel contours corresponding to regulatory exposure limits.
+
+Key parameters and methodology are documented in the parent folder README.md.
+
+================================================================================

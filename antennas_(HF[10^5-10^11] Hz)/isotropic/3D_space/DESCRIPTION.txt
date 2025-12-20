@@ -1,0 +1,213 @@
+================================================================================
+ELECTRIC FIELD ANALYSIS - ISOTROPIC ANTENNA (3D VISUALIZATION)
+================================================================================
+
+SIMULATION: Isotropic radiator with uniform radiation pattern
+FILE: simulation.m
+OUTPUT: output.png
+
+================================================================================
+1. ANTENNA CHARACTERISTICS
+================================================================================
+
+Type: Isotropic Radiator (Theoretical Reference)
+
+Definition:
+An isotropic antenna is a hypothetical lossless antenna that radiates
+electromagnetic waves uniformly in all directions with equal intensity.
+
+Key Properties:
+- Radiation pattern: F(θ,φ) = 1 (constant, independent of direction)
+- Directivity: D = 1 (0 dBi by definition)
+- Gain: G = 1 (0 dBi, assuming lossless)
+- Polarization: Not defined (theoretical construct)
+
+Physical Realizability:
+An isotropic antenna CANNOT be physically constructed. It violates the
+Helmholtz wave equation constraint that requires sources to have some
+directional variation. However, it serves as an invaluable REFERENCE for
+comparing real antenna performance.
+
+================================================================================
+2. ELECTRIC FIELD EQUATIONS
+================================================================================
+
+FAR-FIELD ELECTRIC FIELD:
+
+For an isotropic antenna with transmitted power P_tx:
+
+    E(r) = √(30 · EIRP) / r = √(30 · P_tx · G) / r
+
+Since G = 1 for isotropic:
+
+    E(r) = √(30 · P_tx) / r = k / r
+
+where k = √(30 · P_tx) is a constant.
+
+SIMULATION PARAMETERS:
+- k = 4 (corresponds to P_tx = k²/30 = 0.53 W)
+- This represents a low-power transmitter
+
+FIELD VALUES:
+    E(0.1 m) = 40 V/m
+    E(0.67 m) = 6 V/m (attention value)
+    E(1 m) = 4 V/m
+    E(2 m) = 2 V/m
+    E(10 m) = 0.4 V/m
+
+ISOSURFACE GEOMETRY:
+
+For E = E_target (constant), solving k/r = E_target:
+
+    r = k / E_target
+
+This defines a SPHERE centered at the antenna position.
+
+For E = 6 V/m with k = 4:
+    r = 4/6 = 0.67 m
+
+The isosurface is a sphere of radius 0.67 m.
+
+================================================================================
+3. POWER DENSITY
+================================================================================
+
+The power density (Poynting vector) for an isotropic antenna:
+
+    S(r) = P_tx / (4πr²) = EIRP / (4πr²) [W/m²]
+
+Alternatively, from the electric field:
+
+    S = E² / Z₀ = E² / 377 [W/m²]
+
+For E = 6 V/m:
+    S = 36/377 = 0.095 W/m² ≈ 0.1 W/m² (attention value)
+
+================================================================================
+4. VISUALIZATION DESCRIPTION
+================================================================================
+
+3D ISOSURFACE PLOT:
+
+The visualization shows a semi-transparent orange sphere representing the
+locus of all points where E = 6 V/m (the Italian attention value).
+
+Key Features:
+- Perfect spherical shape (isotropic radiation)
+- Antenna position marked at center (red dot)
+- Sphere radius = 0.67 m for the given parameters
+
+Physical Interpretation:
+- Inside the sphere: E > 6 V/m (higher exposure)
+- On the sphere: E = 6 V/m (threshold)
+- Outside the sphere: E < 6 V/m (lower exposure)
+
+================================================================================
+5. COMPARISON WITH DIRECTIVE ANTENNAS
+================================================================================
+
+The isotropic antenna distributes power uniformly in 4π steradians.
+Real antennas concentrate power in preferred directions:
+
+                    Isotropic   Dipole    Yagi     Parabolic
+Gain [dBi]          0           2.15      8-15     30-50
+Beam solid angle    4π sr       5.0 sr    1-0.1 sr 10⁻⁴-10⁻⁶ sr
+Max range for 6V/m  0.67 m      0.86 m    1.7-4 m  21-210 m
+
+The higher the gain, the farther the field extends in the main beam direction,
+but it falls off more rapidly off-axis.
+
+================================================================================
+6. EIRP AND POWER RELATIONSHIPS
+================================================================================
+
+EIRP (Equivalent Isotropically Radiated Power):
+
+The EIRP is the power that would need to be fed to an isotropic antenna to
+produce the same peak power density as the actual antenna:
+
+    EIRP = P_tx · G_max
+
+Example calculations:
+- P_tx = 10 W, G = 10 dBi (10×): EIRP = 100 W
+- P_tx = 1 W, G = 20 dBi (100×): EIRP = 100 W
+
+Both produce the same peak field strength in the main beam.
+
+FIELD FROM EIRP:
+
+    E_max = √(30 · EIRP) / r [V/m]
+
+For EIRP = 100 W:
+    E(1 m) = √3000 = 54.8 V/m
+    E(10 m) = 5.48 V/m
+
+================================================================================
+7. REGULATORY CONTEXT
+================================================================================
+
+ITALIAN LIMITS (DPCM 8 July 2003):
+
+For frequencies 0.1 - 300 GHz:
+- Exposure limit: 20 V/m
+- Attention value: 6 V/m (visualized in this simulation)
+- Quality objective: 6 V/m
+
+EXCLUSION ZONE CALCULATION:
+
+Given EIRP, the radius r where E equals a limit value E_lim is:
+
+    r_exclusion = √(30 · EIRP) / E_lim
+
+For EIRP = 100 W:
+    r(20 V/m) = 54.8/20 = 2.74 m (exposure limit zone)
+    r(6 V/m) = 54.8/6 = 9.13 m (attention zone)
+
+================================================================================
+8. APPLICATIONS OF ISOTROPIC REFERENCE
+================================================================================
+
+1. ANTENNA GAIN DEFINITION:
+   Gain is always specified relative to isotropic (dBi)
+
+2. LINK BUDGET CALCULATIONS:
+   Free-space path loss uses isotropic assumption as baseline
+
+3. COVERAGE PLANNING:
+   Isotropic model provides conservative (worst-case) estimates
+
+4. REGULATORY COMPLIANCE:
+   EIRP is the standard metric for transmitter power limits
+
+5. MEASUREMENT CALIBRATION:
+   Reference antennas approach isotropic in certain planes
+
+================================================================================
+9. MATHEMATICAL NOTES
+================================================================================
+
+FIELD DERIVATION FROM MAXWELL'S EQUATIONS:
+
+For a time-harmonic point source (isotropic), the electric field in
+spherical coordinates is:
+
+    E_r = 0 (transverse wave, no radial component in far field)
+    E_θ = (jkη₀I₀ℓ/4πr) · sin(θ) · e^(-jkr)  [for short dipole]
+
+For true isotropic (impossible), would require:
+    E = const/r  (independent of θ,φ)
+
+This violates ∇·E = 0 at the origin, proving isotropic radiation is
+physically impossible for a point source.
+
+================================================================================
+10. REFERENCES
+================================================================================
+
+[1] Balanis, C.A., "Antenna Theory: Analysis and Design", 4th Ed., Ch. 2
+[2] IEEE Std 145-2013: Definitions of Terms for Antennas
+[3] ITU-R Recommendation SM.326-7: Determination of EIRP limits
+[4] ICNIRP Guidelines (2020): RF electromagnetic fields
+[5] Italian DPCM 8 July 2003: RF exposure limits
+
+================================================================================

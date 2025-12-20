@@ -1,0 +1,148 @@
+================================================================================
+MAGNETIC FIELD ANALYSIS - SINGLE WIRE IN XY PLANE
+================================================================================
+
+SIMULATION: Single infinite wire along Z-axis, magnetic field in XY plane (z=0)
+FILE: simulation.m
+OUTPUT: output.png
+
+================================================================================
+1. PHYSICAL CONFIGURATION
+================================================================================
+
+Wire Geometry:
+- Orientation: Parallel to Z-axis (vertical)
+- Position: Passes through origin (x=0, y=0)
+- Length: Infinite (approximation valid when r << L)
+- Cross-section: Negligible (thin wire approximation)
+
+Current:
+- Magnitude: I = 100 A (RMS for AC)
+- Frequency: 50 Hz (implicit, quasi-static analysis)
+- Direction: Positive Z (upward)
+
+Observation Domain:
+- Plane: XY (horizontal cross-section at z=0)
+- Range: x ∈ [-40, 40] m, y ∈ [-40, 40] m
+- Resolution: 0.5 m grid spacing
+
+================================================================================
+2. THEORETICAL BACKGROUND
+================================================================================
+
+BIOT-SAVART LAW FOR INFINITE WIRE:
+
+The magnetic field at distance r from an infinite straight wire is:
+
+    B = (μ₀ · I) / (2π · r)
+
+where:
+    μ₀ = 4π × 10⁻⁷ H/m = 1.2566 × 10⁻⁶ H/m
+    I = current in amperes
+    r = perpendicular distance from wire in meters
+
+DERIVATION:
+Starting from the general Biot-Savart law:
+    dB = (μ₀ · I) / (4π) · (dl × r̂) / r²
+
+For an infinite wire along z, integrating over all z ∈ (-∞, +∞):
+    B = (μ₀ · I) / (4π) · ∫_{-∞}^{+∞} dz / (r² + z²)^(3/2) · r
+    B = (μ₀ · I) / (4π) · [z / (r² · √(r² + z²))]_{-∞}^{+∞} · r
+    B = (μ₀ · I) / (4π) · (2/r)
+    B = (μ₀ · I) / (2π · r)
+
+FIELD DIRECTION:
+The field is azimuthal (tangent to circles around the wire):
+    B⃗ = B · φ̂
+
+In Cartesian coordinates for wire at (xₛ, yₛ):
+    Bₓ = -B · (y - yₛ) / r = -B · sin(φ)
+    Bᵧ = +B · (x - xₛ) / r = +B · cos(φ)
+    Bᵤ = 0
+
+where φ = atan2(y - yₛ, x - xₛ) is the azimuthal angle.
+
+================================================================================
+3. NUMERICAL RESULTS
+================================================================================
+
+For I = 100 A:
+
+Distance [m]    |  B [μT]    | Regulatory Status
+----------------|------------|-------------------
+      0.1       |   200.0    | EXCEEDS EXPOSURE LIMIT
+      0.2       |   100.0    | AT EXPOSURE LIMIT (100 μT)
+      1.0       |    20.0    | Below exposure, above attention
+      2.0       |    10.0    | AT ATTENTION VALUE (10 μT)
+      5.0       |     4.0    | Below attention, above quality
+      6.67      |     3.0    | AT QUALITY OBJECTIVE (3 μT)
+     10.0       |     2.0    | Below all limits
+     20.0       |     1.0    | Very low exposure
+     40.0       |     0.5    | Negligible
+
+ANALYTICAL FORMULAS FOR LIMIT DISTANCES:
+    r(100 μT) = μ₀I/(2π·100×10⁻⁶) = 0.20 m
+    r(10 μT)  = μ₀I/(2π·10×10⁻⁶)  = 2.00 m
+    r(3 μT)   = μ₀I/(2π·3×10⁻⁶)   = 6.67 m
+
+================================================================================
+4. VISUALIZATION DESCRIPTION
+================================================================================
+
+LEFT PANEL - 3D SURFACE PLOT:
+- X-axis: Horizontal distance [m]
+- Y-axis: Horizontal distance [m]  
+- Z-axis: Magnetic field magnitude [μT]
+- Color: Hot colormap (yellow=high, dark red=low)
+- Features: Central peak at wire position, circular symmetry
+
+RIGHT PANEL - CONTOUR PLOT:
+- Isolines at regulatory limits: 3, 10, 100 μT
+- Red dot: Wire position
+- Circles: Equidistant contours demonstrating 1/r decay
+- Grid: Reference for distance measurement
+
+================================================================================
+5. KEY OBSERVATIONS
+================================================================================
+
+1. CIRCULAR SYMMETRY: The XY plane is perpendicular to the wire, so the 
+   field exhibits perfect circular symmetry around the wire position.
+
+2. 1/r DECAY: The field magnitude decreases inversely with distance.
+   Doubling the distance halves the field strength.
+
+3. SINGULARITY: The field diverges at r=0 (wire position). This is a 
+   mathematical artifact of the thin wire approximation. Real wires have
+   finite radius, limiting the maximum field.
+
+4. QUASI-STATIC REGIME: At 50 Hz, wavelength λ = c/f ≈ 6000 km, so at 
+   observation distances of tens of meters, retardation effects are 
+   completely negligible.
+
+5. REGULATORY COMPLIANCE: For I=100 A, the 3 μT quality objective 
+   requires a clearance distance of approximately 7 meters.
+
+================================================================================
+6. APPLICATIONS
+================================================================================
+
+This fundamental analysis applies to:
+- Underground power cables (single-phase sections)
+- Overhead transmission lines (per-phase contribution)
+- Busbars in substations
+- Current-carrying rails in electric transportation
+
+The single-wire model is the building block for multi-conductor analysis
+using the superposition principle.
+
+================================================================================
+7. REFERENCES
+================================================================================
+
+[1] J.D. Jackson, "Classical Electrodynamics", 3rd Ed., Chapter 5
+[2] D.J. Griffiths, "Introduction to Electrodynamics", 4th Ed., Section 5.2
+[3] ICNIRP Guidelines (2010): Low frequency electromagnetic fields
+[4] Italian DPCM 8 July 2003: ELF exposure limits
+
+================================================================================
