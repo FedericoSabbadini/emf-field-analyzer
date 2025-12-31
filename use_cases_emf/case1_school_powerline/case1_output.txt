@@ -1,0 +1,30 @@
+
+╔════════════════════════════════════════════════════════════╗
+║         CASO 1: SCUOLA VICINO A LINEA 380 kV              ║
+╚════════════════════════════════════════════════════════════╝
+
+PARAMETRI LINEA ELETTRICA:
+  Tensione:          380 kV
+  Corrente/fase:     1500 A
+  Altezza conduttori: 22 m
+  Spaziatura fasi:   12 m
+
+═══════════════════════════════════════════════════════════
+RISULTATI CALCOLO:
+  Campo sotto la linea (x=0):  11.7 μT
+  Campo alla scuola (x=50m):   2.23 μT
+  Distanza limite 3 μT:        42 m
+
+VERIFICA CONFORMITÀ NORMATIVA (DPCM 8/7/2003):
+  Obiettivo qualità:           3 μT
+  Campo alla scuola:           2.23 μT
+  ESITO:  ✓ CONFORME
+
+CONCLUSIONE:
+  La scuola può essere costruita nella posizione proposta.
+═══════════════════════════════════════════════════════════
+
+Output salvato:
+  - Grafico: case1_output.png
+  - Console: case1_output.txt
+

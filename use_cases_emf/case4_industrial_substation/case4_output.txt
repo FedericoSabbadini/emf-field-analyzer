@@ -1,0 +1,37 @@
+
+╔════════════════════════════════════════════════════════════╗
+║         CASO 4: SOTTOSTAZIONE INDUSTRIALE                 ║
+╚════════════════════════════════════════════════════════════╝
+
+PARAMETRI IMPIANTO:
+  Trasformatore:     20 kV / 400 V, 1.6 MVA
+  Corrente carico:   2000 A/fase
+  Altezza sbarre:    1.5 m
+  Spaziatura fasi:   15 cm
+
+═══════════════════════════════════════════════════════════
+ESPOSIZIONE LAVORATORI:
+
+  Posizione              │ B [μT] │ Limite  │ Stato
+  ───────────────────────┼────────┼─────────┼────────────
+  Porta quadro (30cm)    │   1602 │ 1000 μT │ ✗ Eccede
+  Distanza lavoro (50cm) │    464 │ 500 μT │ ✓ OK lavoro
+  Postazione operatore (1.5m) │     42 │ 100 μT │ ✓ OK pubbl.
+  Corridoio (2m)         │     25 │ 100 μT │ ✓ OK pubbl.
+
+VERIFICA CONFORMITÀ (Direttiva UE 2013/35):
+  Livello azione:              500 μT
+  Limite esposizione:          1000 μT
+  Max campo zona lavoro (50cm): 464 μT
+  ESITO:  ✓ CONFORME
+
+RACCOMANDAZIONI:
+  - Segnalare zona <50cm con cartello "Campo Magnetico"
+  - Distanza minima lavoro: 50 cm
+  - Portatori pacemaker: distanza >1 m
+═══════════════════════════════════════════════════════════
+
+Output salvato:
+  - Grafico: case4_output.png
+  - Console: case4_output.txt
+

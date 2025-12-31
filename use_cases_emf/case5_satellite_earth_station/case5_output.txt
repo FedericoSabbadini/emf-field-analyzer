@@ -1,0 +1,38 @@
+
+╔════════════════════════════════════════════════════════════╗
+║         CASO 5: STAZIONE SATELLITARE                      ║
+╚════════════════════════════════════════════════════════════╝
+
+PARAMETRI SISTEMA:
+  Frequenza:         6.0 GHz (C-band)
+  Diametro:          3.0 m
+  Guadagno:          43.6 dBi
+  Potenza TX:        100 W
+  EIRP:              63.6 dBW (2309 kW)
+  Elevazione:        25°
+
+═══════════════════════════════════════════════════════════
+ZONE ESCLUSIONE (lungo asse fascio):
+  Limite occupazionale (10 W/m²): 136 m
+  Limite pubblico (2 W/m²):       303 m
+
+VALUTAZIONE LIVELLO SUOLO:
+  Densità tipica a 100m:       12.47 W/m²
+  Status:  ⚠ Verificare con misure
+
+VERIFICA CONFORMITÀ (ICNIRP 2020):
+  Limite occupazionale:        10 W/m²
+  Limite pubblico:             2 W/m²
+  ESITO:  ✓ CONFORME con recinzione a 304m
+
+REQUISITI:
+  - Recinzione zona controllata: 304 m
+  - Cartellonistica RF obbligatoria
+  - Interlock cancello (spegnimento auto TX)
+  - Coordinamento ENAC per voli < 500m AGL
+═══════════════════════════════════════════════════════════
+
+Output salvato:
+  - Grafico: case5_output.png
+  - Console: case5_output.txt
+

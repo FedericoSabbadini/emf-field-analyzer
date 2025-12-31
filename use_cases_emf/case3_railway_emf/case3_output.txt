@@ -1,0 +1,78 @@
+
+╔════════════════════════════════════════════════════════════╗
+║         CASO 3: FERROVIA ALTA VELOCITÀ                    ║
+╚════════════════════════════════════════════════════════════╝
+
+PARAMETRI SISTEMA:
+  Sistema:           25 kV AC, 50 Hz
+  Corrente treno:    1200 A (accelerazione)
+  Altezza catenaria: 5.5 m
+  Scartamento:       1.435 m
+
+═══════════════════════════════════════════════════════════
+CAMPO MAGNETICO DURANTE PASSAGGIO (I=1200A):
+
+  Posizione      │ Distanza │ B [μT] │ Stato
+  ───────────────┼──────────┼────────┼──────────────
+  Residenza 1    │  15 m    │    5.7 │ ⚠ Transitorio
+  Residenza 2    │  30 m    │    2.0 │ ✓ OK
+
+DISTANZE LIMITI NORMATIVI:
+  10 μT (attenzione):  10 m
+  3 μT (qualità):      22 m
+
+NOTA: Esposizione transitoria (3-5 sec passaggio)
+      Campo medio temporale << campo istantaneo
+
+VERIFICA CONFORMITÀ (DPCM 8/7/2003):
+  Limite media 24h:            10 μT
+  Campo 30m (6 treni/h):       2.0 μT picco
+  ESITO:  ✓ CONFORME (esposizione transitoria)
+
+RACCOMANDAZIONE:
+  Fascia rispetto residenziale: 30 m dal binario
+═══════════════════════════════════════════════════════════
+
+Output salvato:
+  - Grafico: case3_output.png
+  - Console: case3_output.txt
+
+
+╔════════════════════════════════════════════════════════════╗
+║         CASO 3: FERROVIA ALTA VELOCITÀ                    ║
+╚════════════════════════════════════════════════════════════╝
+
+PARAMETRI SISTEMA:
+  Sistema:           25 kV AC, 50 Hz
+  Corrente treno:    1200 A (accelerazione)
+  Altezza catenaria: 5.5 m
+  Scartamento:       1.435 m
+
+═══════════════════════════════════════════════════════════
+CAMPO MAGNETICO DURANTE PASSAGGIO (I=1200A):
+
+  Posizione      │ Distanza │ B [μT] │ Stato
+  ───────────────┼──────────┼────────┼──────────────
+  Residenza 1    │  15 m    │    5.7 │ ⚠ Transitorio
+  Residenza 2    │  30 m    │    2.0 │ ✓ OK
+
+DISTANZE LIMITI NORMATIVI:
+  10 μT (attenzione):  10 m
+  3 μT (qualità):      22 m
+
+NOTA: Esposizione transitoria (3-5 sec passaggio)
+      Campo medio temporale << campo istantaneo
+
+VERIFICA CONFORMITÀ (DPCM 8/7/2003):
+  Limite media 24h:            10 μT
+  Campo 30m (6 treni/h):       2.0 μT picco
+  ESITO:  ✓ CONFORME (esposizione transitoria)
+
+RACCOMANDAZIONE:
+  Fascia rispetto residenziale: 30 m dal binario
+═══════════════════════════════════════════════════════════
+
+Output salvato:
+  - Grafico: case3_output.png
+  - Console: case3_output.txt
+

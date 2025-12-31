@@ -1,0 +1,34 @@
+
+╔════════════════════════════════════════════════════════════╗
+║         CASO 2: STAZIONE BASE 5G/LTE                      ║
+╚════════════════════════════════════════════════════════════╝
+
+PARAMETRI ANTENNA:
+  Frequenza:         2100 MHz (LTE Band 1)
+  EIRP:              2000 W (63.0 dBm)
+  Altezza:           25 m
+  Tilt elettrico:    10°
+
+═══════════════════════════════════════════════════════════
+CAMPO ELETTRICO EDIFICIO VICINO (d=40m):
+
+  Piano │ Altezza │ E [V/m] │ Stato
+  ──────┼─────────┼─────────┼──────────────
+   3   │   9 m   │   1.80  │ ✓ OK
+   4   │  12 m   │   2.92  │ ✓ OK
+   5   │  15 m   │   4.98  │ ✓ OK
+   6   │  18 m   │   6.03  │ ✗ ECCEDE
+
+VERIFICA CONFORMITÀ NORMATIVA (DPCM 8/7/2003):
+  Limite:                      6 V/m
+  Campo massimo edificio:      6.03 V/m
+  ESITO:  ✗ NON CONFORME
+
+CONCLUSIONE:
+  Necessarie mitigazioni (aumento tilt o riduzione EIRP).
+═══════════════════════════════════════════════════════════
+
+Output salvato:
+  - Grafico: case2_output.png
+  - Console: case2_output.txt
+
